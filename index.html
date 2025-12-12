@@ -9,295 +9,212 @@
 </head>
 <body>
 
-    <nav class="navbar">
-        <div class="logo-container">
-            <img src="assets/Logo.png" alt="Logo" class="logo-img">
-        </div>
-        
-        <div class="hamburger" onclick="toggleMenu()">
-            <div class="line"></div>
-            <div class="line"></div>
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="logo-container">
+                <img src="assets/Logo.png" alt="Logo" class="logo-img">
+            </div>
+            
+            <div class="hamburger" onclick="toggleMenu()">
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
         </div>
         
         <div class="mobile-menu" id="mobileMenu">
             <span class="close-btn" onclick="toggleMenu()">&times;</span>
-            <a href="#menu">Menu</a>
+            <a href="#menu" onclick="toggleMenu()">Menu</a>
             <div class="menu-footer">
-                <h3>Gypsy Vizaf</h3>
+                <h3>Gypsy Vizag</h3>
                 <p>GYPSY<br>Firing Range Rd<br>Yendada, Visakhapatnam 530045</p>
             </div>
         </div>
     </nav>
-<br><br><br><br><br><br><br>
-    <header class="hero">
-        <h1>Welcome to </h1>
-        <h1>Gypsy Resto Cafe!</h1>
-        <p class="subtitle">Your perfect spot for coffee, pastries, and more.</p>
-        <button class="btn-primary">Explore menu</button>
 
-        <div class="hero-image-container">
-            <img src="assets/gypsyupstairs.png" alt="Latte Art" class="main-img">
-            <button class="nav-arrow left">&lt;</button>
-            <button class="nav-arrow right">&gt;</button>
+    <header class="hero">
+
+        <br><br><br><br><br><h1>Welcome to </h1>
+        <h1>Gypsy Resto Cafe!</h1>
+        <br>
+        <p class="subtitle">Your perfect spot for tastiest food, and many more.</p>
+
+        <div class="marquee-wrapper">
+            <div class="marquee-track">
+                <img src="assets/gypsyupstairs.png" alt="Gypsy 1">
+                <img src="assets/latte-art.jpg" alt="Gypsy 2">
+                <img src="assets/chai-latte.jpg" alt="Gypsy 3">
+                <img src="assets/hot-chocolate.png" alt="Gypsy 4">
+                <img src="assets/gypsy_night.png" alt="Gypsy 5">
+                <img src="assets/pawfet_gypsy.jpg" alt="Gypsy 6">
+                <img src="assets/gypsyupstairs.png" alt="Gypsy 7">
+                
+                <img src="assets/gypsyupstairs.png" alt="Gypsy 1">
+                <img src="assets/latte-art.jpg" alt="Gypsy 2">
+                <img src="assets/chai-latte.jpg" alt="Gypsy 3">
+                <img src="assets/hot-chocolate.png" alt="Gypsy 4">
+                <img src="assets/gypsy_night.png" alt="Gypsy 5">
+                <img src="assets/pawfet_gypsy.jpg" alt="Gypsy 6">
+                <img src="assets/gypsyupstairs.png" alt="Gypsy 7">
+            </div>
         </div>
     </header>
 
     <section class="menu-section" id="menu">
-        <h2 class="section-title">Our Menu</h2>
+        <h2 class="section-title">M E N U</h2>
 
         <div class="menu-card">
-            <h3>Coffee</h3>
+            <h3>S O U P S</h3>
             
             <div class="menu-item">
                 <div class="item-header">
-                    <span class="item-name">Espresso</span>
-                    <span class="item-price">₹250</span>
+                    <span class="item-name">Lemon & coriander soup</span>
+                    <span class="item-price">₹130.00</span>
                 </div>
-                <p class="item-desc">Rich and bold single shot of espresso.</p>
+                <p class="item-desc">Item Description goes here.</p>
             </div>
 
             <div class="menu-item">
                 <div class="item-header">
-                    <span class="item-name">Americano</span>
-                    <span class="item-price">₹300</span>
+                    <span class="item-name">Man chow soup</span>
+                    <span class="item-price">₹130.00</span>
                 </div>
-                <p class="item-desc">Espresso with hot water for a smooth, robust flavor.</p>
+                <p class="item-desc">Item Description goes here.</p>
             </div>
 
             <div class="menu-item">
                 <div class="item-header">
-                    <span class="item-name">Latte</span>
-                    <span class="item-price">₹400</span>
+                    <span class="item-name">Hot & sour</span>
+                    <span class="item-price">₹130.00</span>
                 </div>
-                <p class="item-desc">Espresso with steamed milk and a light layer of foam. Flavors: Vanilla, Caramel, Hazelnut, Mocha.</p>
+                <p class="item-desc">Item Description goes here.</p>
             </div>
 
             <div class="menu-item">
                 <div class="item-header">
-                    <span class="item-name">Cappuccino</span>
-                    <span class="item-price">₹400</span>
+                    <span class="item-name">Tomyum Veg Soup</span>
+                    <span class="item-price">₹160.00</span>
                 </div>
-                <p class="item-desc">Equal parts espresso, steamed milk, and foam.</p>
+                <p class="item-desc">Item Description goes here.</p>
             </div>
 
             <div class="menu-item">
                 <div class="item-header">
-                    <span class="item-name">Flat White</span>
-                    <span class="item-price">₹400</span>
+                    <span class="item-name">Wonton soup veg</span>
+                    <span class="item-price">₹130.00</span>
                 </div>
-                <p class="item-desc">Silky microfoam over a double shot of espresso.</p>
-            </div>
-            
-            <div class="menu-item">
-                <div class="item-header">
-                    <span class="item-name">Macchiato</span>
-                    <span class="item-price">₹350</span>
-                </div>
-                <p class="item-desc">Espresso marked with a dollop of frothy steamed milk.</p>
-            </div>
-
-            <div class="menu-item">
-                <div class="item-header">
-                    <span class="item-name">Mocha</span>
-                    <span class="item-price">₹400</span>
-                </div>
-                <p class="item-desc">Espresso, steamed milk, and rich chocolate syrup, topped with whipped cream.</p>
-            </div>
-
-             <div class="menu-item">
-                <div class="item-header">
-                    <span class="item-name">Cold Brew</span>
-                    <span class="item-price">₹400</span>
-                </div>
-                <p class="item-desc">Smooth and refreshing cold-brewed coffee, served over ice.</p>
+                <p class="item-desc">Item Description goes here.</p>
             </div>
             
             <div class="image-card">
                 <img src="assets/latte-art.jpg" alt="Latte">
-                <span class="pill-badge">Gypsy Indoor</span>
+                <span class="pill-badge">Gypsy Indoor (Sample Image, can insert food images here, Even add new food items to grab attention).</span>
             </div>
         </div>
     </section>
 
     <section class="menu-section">
         <div class="menu-card">
-            <h3>Specialty Lattes</h3>
+            <h3>C O F F E E</h3>
             
             <div class="menu-item">
                 <div class="item-header">
-                    <span class="item-name">Matcha Latte</span>
-                    <span class="item-price">₹450</span>
+                    <span class="item-name">Espresso</span>
+                    <span class="item-price">₹110.00</span>
                 </div>
-                <p class="item-desc">Ceremonial grade matcha blended with steamed milk.</p>
+                <p class="item-desc">A shot of Coffee to awaken your senses.</p>
             </div>
 
             <div class="menu-item">
                 <div class="item-header">
-                    <span class="item-name">Turmeric Latte</span>
-                    <span class="item-price">₹450</span>
+                    <span class="item-name">Café Americano</span>
+                    <span class="item-price">₹120.00</span>
                 </div>
-                <p class="item-desc">Turmeric, ginger, and cinnamon blended with steamed milk for a healthy boost.</p>
-            </div>
-
-            <div class="menu-item">
-                <div class="item-header">
-                    <span class="item-name">Chai Latte</span>
-                    <span class="item-price">₹400</span>
-                </div>
-                <p class="item-desc">Spiced chai tea blended with steamed milk.</p>
-            </div>
-
-            <div class="menu-item">
-                <div class="item-header">
-                    <span class="item-name">Honey Lavender Latte</span>
-                    <span class="item-price">₹500</span>
-                </div>
-                <p class="item-desc">Espresso, steamed milk, honey, and a hint of lavender.</p>
+                <p class="item-desc">A mix of Espresso with hot water.</p>
             </div>
 
             <div class="image-card">
                 <img src="assets/chai-latte.jpg" alt="Chai Latte">
-                <span class="pill-badge">Chai Latte</span>
+                <span class="pill-badge">Chai Latte (Sample Image, can insert food images here, Even add new food items to grab attention).</span>
             </div>
-        </div>
+            </div>
+
+            <div class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">Café Latte</span>
+                    <span class="item-price">₹150.00</span>
+                </div>
+                <p class="item-desc">A coffee made with espresso & steam milk.</p>
+            </div>
+        
+            <div class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">Dappio</span>
+                    <span class="item-price">₹140.00</span>
+                </div>
+                <p class="item-desc">Two shots of espresso, straight.</p>
+            </div>
+        
+            <div class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">Cappuccino</span>
+                    <span class="item-price">₹145.00</span>
+                </div>
+                <p class="item-desc">A smooth rich creamy & Aromatic shot with blend of hto milk foam.</p>
+            </div>
+        
+            <div class="menu-item">
+                <div class="item-header">
+                    <span class="item-name">Affogato</span>
+                    <span class="item-price">₹150.00</span>
+                </div>
+                <p class="item-desc">A shot of cold ice cream with a shot ofhot espresso.</p>
+            </div>
+        <br>
+<h3>More coming soon...</h3>
     </section>
 
-    <section class="menu-section">
-        <div class="menu-card">
-            <h3>Tea & Other Beverages</h3>
-            
-            <div class="menu-item">
-                <div class="item-header">
-                    <span class="item-name">Tea</span>
-                    <span class="item-price">₹300</span>
-                </div>
-                <p class="item-desc">Selection of black, green, and herbal teas.</p>
-            </div>
-
-            <div class="menu-item">
-                <div class="item-header">
-                    <span class="item-name">Hot Chocolate</span>
-                    <span class="item-price">₹450</span>
-                </div>
-                <p class="item-desc">Rich and creamy hot chocolate, topped with whipped cream.</p>
-            </div>
-
-            <div class="menu-item">
-                <div class="item-header">
-                    <span class="item-name">Golden Milk</span>
-                    <span class="item-price">₹400</span>
-                </div>
-                <p class="item-desc">Turmeric, ginger, and honey blended with steamed milk.</p>
-            </div>
-
-            <div class="menu-item">
-                <div class="item-header">
-                    <span class="item-name">Iced Tea</span>
-                    <span class="item-price">₹500</span>
-                </div>
-                <p class="item-desc">Freshly brewed and chilled, served over ice.</p>
-            </div>
-
-            <div class="image-card">
-                <img src="assets/hot-chocolate.png" alt="Hot Chocolate">
-                <span class="pill-badge">Hot Chocolate</span>
-            </div>
-        </div>
-    </section>
-
-    <section class="menu-section">
-        <div class="menu-card">
-            <h3>Pastries & Baked Goods</h3>
-            
-            <div class="menu-item">
-                <div class="item-header">
-                    <span class="item-name">Croissant</span>
-                    <span class="item-price">₹300</span>
-                </div>
-                <p class="item-desc">Buttery and flaky, baked fresh daily.</p>
-            </div>
-
-            <div class="menu-item">
-                <div class="item-header">
-                    <span class="item-name">Muffins</span>
-                    <span class="item-price">₹250</span>
-                </div>
-                <p class="item-desc">Varieties: Blueberry, Chocolate Chip, Banana Nut.</p>
-            </div>
-
-            <div class="menu-item">
-                <div class="item-header">
-                    <span class="item-name">Scones</span>
-                    <span class="item-price">$4.00</span>
-                </div>
-                <p class="item-desc">Varieties: Cranberry Orange, Vanilla Bean.</p>
-            </div>
-            
-            <div class="menu-item">
-                <div class="item-header">
-                    <span class="item-name">Cookies</span>
-                    <span class="item-price">$2.00</span>
-                </div>
-                <p class="item-desc">Varieties: Chocolate Chip, Oatmeal Raisin, Double Chocolate.</p>
-            </div>
-
-            <div class="menu-item">
-                <div class="item-header">
-                    <span class="item-name">Brownies</span>
-                    <span class="item-price">$3.00</span>
-                </div>
-                <p class="item-desc">Rich and fudgy, with a crackly top.</p>
-            </div>
-
-            <div class="image-card">
-                <img src="croissant.jpg" alt="Croissant">
-                <span class="pill-badge">Croissant</span>
-            </div>
-        </div>
-    </section>
-
+    <div class="logo-about">
+                <img src="assets/Logo.png" alt="Logo" class="logo-about">
+    </div>
     <section class="about-section">
         <div class="about-card">
-            <div class="image-wrapper-rounded">
-                <img src="interior.jpg" alt="Cafe Interior">
-            </div>
-            
             <div class="about-content">
-                <div class="script-logo">Gypsy<br>Vizag</div>
                 <p>European-style Resto-Café</p>
                 <p>Unforgettable memories & lip-smacking food</p>
                 <p><b>Pet-friendly</b> paradise</p>
-                
+<br>
                 <div class="location-mini">
                     <strong>Location:</strong>
                     <p>GYPSY<br>Firing Range Rd<br>Yendada, Visakhapatnam 530045</p>
                 </div>
-
-                <button class="btn-primary">Explore menu</button>
             </div>
         </div>
     </section>
-
+<br>
+    <footer class="site-footer">
         <div class="footer-info">
             <div class="info-group">
-                <h3>Opening hours:</h3>
-                <p> 11:00 AM – 10:30 PM</p>
+                <h3>Opening hours</h3>
+                <p> 11:00 AM to 10:30 PM</p>
             </div>
-
+<br>
             <div class="info-group">
                 <h3>Phone:</h3>
                 <p>093478 03760</p>
             </div>
 
-        <div class="copyright">
-            <pre>&copy; 2025 — G Y P S Y</pre>
-            <div class="legal-links">
-                <a href="#">Privacy Policy</a>
-                <a href="#">Cookies</a>
-                <a href="#">Terms & Conditions</a>
+            <div class="copyright">
+                <pre>&copy; 2 0 2 5 —-- G Y P S Y</pre>
+                <div class="legal-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms</a>
+                </div>
             </div>
         </div>
+        <div style="height: 100px;"></div>
     </footer>
+
+    <div class="bottom-glass-mask"></div>
 
     <script src="script.js"></script>
 </body>

@@ -1,7 +1,6 @@
 :root {
-    --bg-color: #FDF8E4; /* Cream background from screenshot */
+    --bg-color: #FDF8E4; 
     --text-color: #1a1a1a;
-    --card-bg: #FDF8E4; /* Same as bg mostly, but helps if you want slight variation */
     --primary-btn: #000000;
     --btn-text: #ffffff;
     --font-main: 'Plus Jakarta Sans', sans-serif;
@@ -22,38 +21,58 @@ body {
 }
 
 /* --- Container Utility --- */
-/* Limits width on laptops so it doesn't stretch too wide */
-.hero, .menu-section, .about-section, .site-footer, .navbar {
-    max-width: 600px; /* Optimized for "Mobile Look" even on desktop */
+.hero, .menu-section, .about-section, .site-footer {
+    max-width: 600px;
     margin: 0 auto;
     padding: 20px;
 }
 
-/* --- Navbar --- */
 .navbar {
-    position: fixed;        /* FREEZES it at the top */
+    position: fixed;
     top: 0;
     left: 0;
-    width: 100%;            /* Spans full width */
-    z-index: 1000;          /* Ensures it sits ON TOP of everything */
-    background-color: var(--bg-color); /* Matches background so text doesn't scroll behind it */
+    width: 100%;
+    z-index: 1000;
     
-    /* Alignment adjustments */
+    /* The Glass Effect */
+    background: rgba(253, 248, 228, 0.65); 
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    
+    padding: 15px 0;
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+/* Class added via JS to hide nav */
+.navbar.nav-hidden {
+    transform: translateY(-100%);
+}
+
+.nav-container {
+    max-width: 800px; /* Wider for desktop, but contained */
+    margin: 0 auto;
+    padding: 0 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 20px;     /* Adjust spacing as needed */
-    max-width: 100%;        /* Override the centered container for the full bar */
 }
 
 .logo-img {
-    width: 60px;            /* Matches the original design size */
-    height: 60px;
-    border-radius: 50%;     /* Makes the square PNG a circle */
-    object-fit: cover;      /* Ensures the image doesn't get squished */
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
     display: block;
 }
 
+.logo-about {
+    height: 377px;
+    display: flex;
+    margin: 0 auto;
+    align-items: center;
+    gap: 15px;
+}
 .hamburger {
     cursor: pointer;
     display: flex;
@@ -62,24 +81,25 @@ body {
 }
 
 .hamburger .line {
-    width: 30px;
+    width: 25px;
     height: 2px;
     background-color: #000;
+    border-radius: 2px;
 }
 
-/* Mobile Menu Overlay */
+/* Mobile Menu */
 .mobile-menu {
     position: fixed;
     top: 0;
     right: -100%;
     width: 100%;
-    height: 100%;
+    height: 100dvh;
     background-color: var(--bg-color);
-    z-index: 1000;
+    z-index: 2000;
     display: flex;
     flex-direction: column;
     padding: 40px;
-    transition: 0.3s ease;
+    transition: 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .mobile-menu.active {
@@ -105,23 +125,24 @@ body {
     margin-top: auto;
 }
 
-/* --- Hero Section --- */
+/* --- Hero & Marquee --- */
 .hero {
     text-align: center;
-    padding-top: 40px;
+    padding-top: 20px;
+    overflow: hidden; /* Important for slider */
 }
 
 .hero h1 {
     font-size: 42px;
     line-height: 1.1;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
 .hero .subtitle {
     font-size: 18px;
     color: #444;
     margin-bottom: 25px;
-    max-width: 80%;
+    max-width: 90%;
     margin-left: auto;
     margin-right: auto;
 }
@@ -136,63 +157,61 @@ body {
     font-size: 16px;
     cursor: pointer;
     margin-bottom: 40px;
-    transition: transform 0.2s;
 }
 
-.btn-primary:active {
-    transform: scale(0.98);
-}
-
-.hero-image-container {
-    position: relative;
-    border-radius: 20px;
+/* --- Moving Slider (Marquee) --- */
+.marquee-wrapper {
+    width: 100vw; /* Full screen width */
+    margin-left: -20px; /* Offset parent padding */
     overflow: hidden;
+    position: relative;
     margin-top: 20px;
 }
 
-.hero-image-container img {
-    width: 100%;
-    display: block;
+.marquee-track {
+    display: flex;
+    gap: 15px;
+    width: max-content;
+    /* Speed: 40s. Type: Linear for smooth continuous motion */
+    animation: scroll 77s linear infinite; 
+}
+
+.marquee-track img {
+    height: 300px; /* Fixed height for consistency */
+    width: auto;   /* Width adjusts naturally */
     border-radius: 20px;
+    object-fit: cover;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
 
-.nav-arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(255, 255, 255, 0.6);
-    border: none;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    font-size: 20px;
-    cursor: pointer;
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); } /* Moves halfway (the length of one set of images) */
 }
 
-.nav-arrow.left { left: 15px; }
-.nav-arrow.right { right: 15px; }
-
-/* --- Menu Sections --- */
+/* --- Menu Items --- */
 .section-title {
-    font-size: 48px;
-    margin-bottom: 40px;
-    margin-top: 20px;
+    font-size: 42px;
+    margin-bottom: 30px;
     font-weight: 600;
+    text-align: left;
 }
 
 .menu-card {
-    background-color: transparent; /* Seamless with bg */
     border-radius: 20px;
     margin-bottom: 40px;
 }
 
 .menu-card h3 {
-    font-size: 28px;
+    font-size: 24px;
     margin-bottom: 25px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #666;
 }
 
 .menu-item {
-    margin-bottom: 30px;
+    margin-bottom: 25px;
 }
 
 .item-header {
@@ -209,17 +228,15 @@ body {
     line-height: 1.4;
 }
 
-/* Image Cards inside menu */
 .image-card {
     position: relative;
-    margin-top: 30px;
+    margin-top: 20px;
     border-radius: 25px;
     overflow: hidden;
 }
 
 .image-card img {
     width: 100%;
-    height: auto;
     display: block;
     border-radius: 25px;
 }
@@ -228,161 +245,64 @@ body {
     position: absolute;
     top: 20px;
     left: 20px;
-    background-color: #FDF8E4;
-    padding: 8px 20px;
+    background-color: rgba(253, 248, 228, 0.9);
+    padding: 8px 16px;
     border-radius: 50px;
     font-weight: 700;
-    font-size: 14px;
-    color: #000;
-}
-
-/* --- About Section --- */
-.about-section {
-    text-align: center;
-    background-color: #FDF8E4;
-}
-
-.image-wrapper-rounded img {
-    width: 100%;
-    border-radius: 30px 30px 0 0; /* Top corners rounded */
-    display: block;
-}
-
-.about-content {
-    text-align: center;
-    padding: 40px 20px;
-}
-
-.script-logo {
-    font-family: 'Brush Script MT', cursive; /* Fallback for handwritten look */
-    font-size: 32px;
-    margin-bottom: 10px;
-    transform: rotate(-5deg);
-}
-
-.about-content h2 {
-    font-size: 36px;
-    margin-bottom: 20px;
-}
-
-.about-content p {
-    margin-bottom: 20px;
-    color: #333;
-}
-
-.location-mini {
-    margin: 30px 0;
-}
-
-/* --- Footer --- */
-.site-footer {
-    padding-top: 60px;
-    padding-bottom: 40px;
-}
-
-.footer-logo {
-    font-family: 'Brush Script MT', cursive;
-    font-size: 32px;
-    margin-bottom: 15px;
-    transform: rotate(-5deg);
-}
-
-.site-footer h2 {
-    font-size: 36px;
-    margin-bottom: 40px;
-    max-width: 70%;
-}
-
-.info-group {
-    margin-bottom: 30px;
-}
-
-.info-group h3 {
-    font-size: 18px;
-    margin-bottom: 10px;
-}
-
-.info-group p {
-    color: #333;
-    margin-bottom: 5px;
-}
-
-.social-icons {
-    display: flex;
-    gap: 20px;
-    font-size: 24px;
-    margin-bottom: 40px;
-}
-
-.social-icons a {
-    color: #000;
-    text-decoration: none;
-}
-
-.map-overlay {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    background: white;
-    padding: 10px 15px;
-    border-radius: 8px;
     font-size: 12px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    color: #000;
+    backdrop-filter: blur(5px);
 }
 
-.copyright {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    font-size: 14px;
-    color: #666;
-    align-items: center;
-    text-align: center;
+/* --- About & Footer --- */
+.about-section { text-align: center; }
+.image-wrapper-rounded img { width: 100%; border-radius: 30px 30px 0 0; display: block; }
+
+.about-content { padding: 40px 20px; background: #fffaf0; border-radius: 0 0 30px 30px; }
+.script-logo { font-family: 'Brush Script MT', cursive; font-size: 32px; margin-bottom: 10px; transform: rotate(-5deg); }
+
+.site-footer { text-align: center; padding-bottom: 0; }
+.copyright { margin-top: 40px; font-size: 12px; color: #888; }
+.legal-links { display: flex; justify-content: center; gap: 15px; margin-top: 10px; }
+.legal-links a { color: #888; text-decoration: none; }
+
+/* --- Bottom Glass Mask (Alive Effect) --- */
+.bottom-glass-mask {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 120px; /* Height of the fade */
+    pointer-events: none; /* Allows clicking through it */
+    z-index: 99;
+    
+    /* Double effect: Gradient to fade out + Blur to distort */
+    background: linear-gradient(to top, var(--bg-color) 10%, rgba(253, 248, 228, 0) 100%);
+    backdrop-filter: blur(4px); 
+    -webkit-backdrop-filter: blur(4px);
+    
+    /* Makes the effect subtle at top and strong at bottom */
+    mask-image: linear-gradient(to top, black, transparent);
+    -webkit-mask-image: linear-gradient(to top, black, transparent);
 }
 
-.legal-links {
-    display: flex;
-    gap: 15px;
-}
-
-.legal-links a {
-    color: #666;
-    text-decoration: none;
-}
-
-/* --- Laptop / Desktop Optimization --- */
-/* The design style in screenshots is very narrow (phone layout). 
-   To make it look good on laptop but keep the design exact, 
-   we center the content and add white space on sides (like a mobile preview).
-   However, if you want a true desktop view, we can expand the grid. 
-   Given "exactly similar", keeping the single column stack in the center is safer 
-   to match the screenshot vibe, but I will widen it slightly. */
-
+/* --- Desktop Tweaks --- */
 @media (min-width: 992px) {
-    .hero, .menu-section, .about-section, .site-footer, .navbar {
-        max-width: 800px; 
+    .hero, .menu-section, .about-section, .site-footer {
+        max-width: 800px;
     }
-
-    .hero h1 {
-        font-size: 64px;
-    }
-
-    /* Create 2-column layout for menu items on big screens */
     .menu-card {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
     }
+    .menu-card h3, .image-card { width: 100%; }
+    .menu-item { width: 48%; }
     
-    .menu-card h3 {
+    /* Fix marquee to not look crazy wide on desktop */
+    .marquee-wrapper {
         width: 100%;
-    }
-
-    .menu-item {
-        width: 48%; /* 2 columns */
-    }
-
-    .image-card {
-        width: 100%;
+        margin-left: 0;
+        border-radius: 20px;
     }
 }
