@@ -1,0 +1,388 @@
+:root {
+    --bg-color: #FDF8E4; /* Cream background from screenshot */
+    --text-color: #1a1a1a;
+    --card-bg: #FDF8E4; /* Same as bg mostly, but helps if you want slight variation */
+    --primary-btn: #000000;
+    --btn-text: #ffffff;
+    --font-main: 'Plus Jakarta Sans', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    font-family: var(--font-main);
+    color: var(--text-color);
+    line-height: 1.5;
+    overflow-x: hidden;
+}
+
+/* --- Container Utility --- */
+/* Limits width on laptops so it doesn't stretch too wide */
+.hero, .menu-section, .about-section, .site-footer, .navbar {
+    max-width: 600px; /* Optimized for "Mobile Look" even on desktop */
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* --- Navbar --- */
+.navbar {
+    position: fixed;        /* FREEZES it at the top */
+    top: 0;
+    left: 0;
+    width: 100%;            /* Spans full width */
+    z-index: 1000;          /* Ensures it sits ON TOP of everything */
+    background-color: var(--bg-color); /* Matches background so text doesn't scroll behind it */
+    
+    /* Alignment adjustments */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;     /* Adjust spacing as needed */
+    max-width: 100%;        /* Override the centered container for the full bar */
+}
+
+.logo-img {
+    width: 60px;            /* Matches the original design size */
+    height: 60px;
+    border-radius: 50%;     /* Makes the square PNG a circle */
+    object-fit: cover;      /* Ensures the image doesn't get squished */
+    display: block;
+}
+
+.hamburger {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.hamburger .line {
+    width: 30px;
+    height: 2px;
+    background-color: #000;
+}
+
+/* Mobile Menu Overlay */
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-color);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+    transition: 0.3s ease;
+}
+
+.mobile-menu.active {
+    right: 0;
+}
+
+.mobile-menu a {
+    text-decoration: none;
+    color: #000;
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.close-btn {
+    align-self: flex-end;
+    font-size: 40px;
+    cursor: pointer;
+    margin-bottom: 40px;
+}
+
+.menu-footer {
+    margin-top: auto;
+}
+
+/* --- Hero Section --- */
+.hero {
+    text-align: center;
+    padding-top: 40px;
+}
+
+.hero h1 {
+    font-size: 42px;
+    line-height: 1.1;
+    margin-bottom: 15px;
+}
+
+.hero .subtitle {
+    font-size: 18px;
+    color: #444;
+    margin-bottom: 25px;
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn-primary {
+    background-color: var(--primary-btn);
+    color: var(--btn-text);
+    padding: 14px 28px;
+    border-radius: 50px;
+    border: none;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    margin-bottom: 40px;
+    transition: transform 0.2s;
+}
+
+.btn-primary:active {
+    transform: scale(0.98);
+}
+
+.hero-image-container {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-top: 20px;
+}
+
+.hero-image-container img {
+    width: 100%;
+    display: block;
+    border-radius: 20px;
+}
+
+.nav-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.6);
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.nav-arrow.left { left: 15px; }
+.nav-arrow.right { right: 15px; }
+
+/* --- Menu Sections --- */
+.section-title {
+    font-size: 48px;
+    margin-bottom: 40px;
+    margin-top: 20px;
+    font-weight: 600;
+}
+
+.menu-card {
+    background-color: transparent; /* Seamless with bg */
+    border-radius: 20px;
+    margin-bottom: 40px;
+}
+
+.menu-card h3 {
+    font-size: 28px;
+    margin-bottom: 25px;
+}
+
+.menu-item {
+    margin-bottom: 30px;
+}
+
+.item-header {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 700;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.item-desc {
+    color: #555;
+    font-size: 15px;
+    line-height: 1.4;
+}
+
+/* Image Cards inside menu */
+.image-card {
+    position: relative;
+    margin-top: 30px;
+    border-radius: 25px;
+    overflow: hidden;
+}
+
+.image-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 25px;
+}
+
+.pill-badge {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background-color: #FDF8E4;
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 14px;
+    color: #000;
+}
+
+/* --- About Section --- */
+.about-section {
+    text-align: center;
+    background-color: #FDF8E4;
+}
+
+.image-wrapper-rounded img {
+    width: 100%;
+    border-radius: 30px 30px 0 0; /* Top corners rounded */
+    display: block;
+}
+
+.about-content {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.script-logo {
+    font-family: 'Brush Script MT', cursive; /* Fallback for handwritten look */
+    font-size: 32px;
+    margin-bottom: 10px;
+    transform: rotate(-5deg);
+}
+
+.about-content h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.about-content p {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.location-mini {
+    margin: 30px 0;
+}
+
+/* --- Footer --- */
+.site-footer {
+    padding-top: 60px;
+    padding-bottom: 40px;
+}
+
+.footer-logo {
+    font-family: 'Brush Script MT', cursive;
+    font-size: 32px;
+    margin-bottom: 15px;
+    transform: rotate(-5deg);
+}
+
+.site-footer h2 {
+    font-size: 36px;
+    margin-bottom: 40px;
+    max-width: 70%;
+}
+
+.info-group {
+    margin-bottom: 30px;
+}
+
+.info-group h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.info-group p {
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.social-icons {
+    display: flex;
+    gap: 20px;
+    font-size: 24px;
+    margin-bottom: 40px;
+}
+
+.social-icons a {
+    color: #000;
+    text-decoration: none;
+}
+
+.map-overlay {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: white;
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-size: 12px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.copyright {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 14px;
+    color: #666;
+    align-items: center;
+    text-align: center;
+}
+
+.legal-links {
+    display: flex;
+    gap: 15px;
+}
+
+.legal-links a {
+    color: #666;
+    text-decoration: none;
+}
+
+/* --- Laptop / Desktop Optimization --- */
+/* The design style in screenshots is very narrow (phone layout). 
+   To make it look good on laptop but keep the design exact, 
+   we center the content and add white space on sides (like a mobile preview).
+   However, if you want a true desktop view, we can expand the grid. 
+   Given "exactly similar", keeping the single column stack in the center is safer 
+   to match the screenshot vibe, but I will widen it slightly. */
+
+@media (min-width: 992px) {
+    .hero, .menu-section, .about-section, .site-footer, .navbar {
+        max-width: 800px; 
+    }
+
+    .hero h1 {
+        font-size: 64px;
+    }
+
+    /* Create 2-column layout for menu items on big screens */
+    .menu-card {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    
+    .menu-card h3 {
+        width: 100%;
+    }
+
+    .menu-item {
+        width: 48%; /* 2 columns */
+    }
+
+    .image-card {
+        width: 100%;
+    }
+}
