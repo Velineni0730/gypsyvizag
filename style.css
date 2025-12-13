@@ -306,3 +306,47 @@ body {
         border-radius: 20px;
     }
 }
+
+/* --- Veg / Non-Veg Icons --- */
+
+/* Ensures the icon aligns perfectly with the text */
+.item-name {
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Space between icon and text */
+}
+
+/* The outer box of the icon */
+.diet-icon {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid; /* Color inherits from specific class below */
+    border-radius: 3px;
+    position: relative;
+    flex-shrink: 0; /* Prevents icon from squishing on small screens */
+}
+
+/* The inner circle (dot) */
+.diet-icon::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: currentColor; /* Color inherits from parent */
+}
+
+/* Specific Colors */
+.veg {
+    color: #008000;       /* Green */
+    border-color: #008000;
+}
+
+.non-veg {
+    color: #8B0000;       /* Brown/Red */
+    border-color: #8B0000;
+}
