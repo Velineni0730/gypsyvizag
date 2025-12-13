@@ -266,6 +266,160 @@ body {
 .legal-links { display: flex; justify-content: center; gap: 15px; margin-top: 10px; }
 .legal-links a { color: #888; text-decoration: none; }
 
+/* --- Notice Banner --- */
+.notice-banner {
+    max-width: 600px;
+    margin: 0 auto 40px;
+    background-color: rgba(0, 0, 0, 0.05);
+    padding: 15px 20px;
+    border-radius: 12px;
+    display: flex;
+    gap: 12px;
+    align-items: start;
+    font-size: 13px;
+    color: #555;
+    line-height: 1.4;
+}
+
+.notice-icon {
+    font-size: 16px;
+    color: #666;
+}
+
+/* --- Brand Card (The White Box) --- */
+.brand-card {
+    background: #ffffff;
+    border-radius: 30px;
+    padding: 40px 20px;
+    text-align: center;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.03); /* Subtle soft shadow */
+    margin-bottom: 30px;
+}
+
+/* Logo Styling */
+.footer-logo {
+    width: 120px;      /* Much smaller, cleaner size */
+    height: 120px;
+    object-fit: contain;
+    border-radius: 50%; /* Makes it circular */
+    margin-bottom: 20px;
+    
+    /* If your logo has a white background, this helps blend it: */
+    mix-blend-mode: multiply; 
+}
+
+/* Typography in Card */
+.brand-tagline {
+    font-size: 22px;
+    margin-bottom: 8px;
+    color: #222;
+}
+
+.brand-sub {
+    font-size: 15px;
+    color: #666;
+    margin-bottom: 15px;
+    font-style: italic;
+}
+
+.highlight-pill {
+    display: inline-block;
+    background-color: #FDF8E4;
+    border: 1px solid #e0d8c0;
+    padding: 6px 14px;
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #444;
+    margin-top: 5px;
+}
+
+.brand-divider {
+    border: 0;
+    height: 1px;
+    background: #eee;
+    margin: 30px 0;
+    width: 100%;
+}
+
+/* --- Info Grid (Hours, Loc, Phone) --- */
+.info-grid {
+    display: flex;
+    flex-direction: column; /* Stacked on mobile */
+    gap: 30px;
+}
+
+.info-item h3 {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #888;
+    margin-bottom: 8px;
+    margin-top: 10px;
+}
+
+.info-item p {
+    font-size: 16px;
+    color: #222;
+    line-height: 1.5;
+}
+
+.phone-link {
+    color: #222;
+    text-decoration: none;
+    font-weight: 700;
+    border-bottom: 1px solid #ccc;
+}
+
+/* Icons */
+.icon-box {
+    width: 40px;
+    height: 40px;
+    background: #F9F9F9;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    color: #333;
+}
+
+/* --- Footer Legal Text --- */
+.copyright {
+    text-align: center;
+    padding: 0 20px;
+}
+
+.copyright p {
+    font-size: 12px;
+    color: #999;
+    margin-bottom: 5px;
+}
+
+.legal-text {
+    font-size: 10px !important;
+    opacity: 0.7;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+/* --- Desktop Layout (Tablet & Up) --- */
+@media (min-width: 768px) {
+    .brand-card {
+        padding: 50px;
+    }
+
+    .info-grid {
+        flex-direction: row; /* Side by side on Desktop */
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+    
+    .info-item {
+        flex: 1; /* Equal width columns */
+    }
+}
+
 /* --- Bottom Glass Mask (Alive Effect) --- */
 .bottom-glass-mask {
     position: fixed;
